@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="关键字[待修改]">
+    <meta name="description" content="网站描述[待修改]">
+    <meta name="author" content="阿巳">
+    
+    <title>
+        
+            Systemd教程 |
+        
+        阿巳の博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"luokn.github.io","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/79f5e4fffe43344d.53wqhj4k3rk0.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Talk is cheap. Show me the code."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                阿巳の博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives/"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about/"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags/"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives/">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about/">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags/">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Systemd教程</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/79f5e4fffe43344d.53wqhj4k3rk0.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">阿巳</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-11-02 16:43:27</span>
+        <span class="mobile">2021-11-02 16:43</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/systemd/">systemd</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><strong>Systemd</strong>是 Linux 下一系列工具的集合，其涵盖了 Linux 的系统启动、服务监控、状态查询、日志归档、设备管理、电源管理与定时任务等功能，除此之外还支持通过特定设备事件与特定端口数据触发的 On-demand（按需）任务。</p>
+<p><strong>Systemd</strong>这一名字源于<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unix" >Unix<i class="fas fa-external-link-alt"></i></a>中的一个惯例：在 Unix 中常以“d”作为系统<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B" >守护进程<i class="fas fa-external-link-alt"></i></a>（英语：<strong>d</strong>aemon，亦称<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%90%8E%E5%8F%B0%E8%BF%9B%E7%A8%8B" >后台进程<i class="fas fa-external-link-alt"></i></a>）的后缀标识。</p>
+<h4 id="一、Systemd-的起源"><a href="#一、Systemd-的起源" class="headerlink" title="一、Systemd 的起源"></a><strong>一、Systemd 的起源</strong></h4><h5 id="1、System-V-启动系统"><a href="#1、System-V-启动系统" class="headerlink" title="1、System V 启动系统"></a>1、System V 启动系统</h5><p>在<strong>Systemd</strong>出现之前，大多数 Linux 发行版使用的是一种源自 Unix 的<strong>System V</strong>风格的<code>init</code>守护进程，它通过运行级别（run level）来确定系统的运行状态，并根据运行级别运行特定的脚本来完成系统的初始化。</p>
+<p><strong>System V</strong> 的服务脚本存放在<code>/etc/init.d</code>下，同时在<code>/etc</code>下还存在<code>rc[0~6]</code>等目录，这些目录下的可执行文件即为不同的运行级别需要启动或者禁止的服务，实际上这些目录下大多数情况下都是一些软链接，其真正的指向是<code>/etc/init.d</code>下的服务脚本。</p>
+<p>在 Linux 主要应用于服务器的时代，<strong>System V</strong>运行非常良好，它的概念简单清晰，但它的服务启动它主要依赖于 Shell 脚本，这就导致了它最大的缺陷：启动太慢。这是因为<strong>System V</strong>的服务都是通过 Shell 启动的，由于 <strong>System V</strong> 缺少依赖解析的机制，因此这是一个串行过程。这个缺陷在很少重启的服务器上并不明显，而在移动设备上就显得格外突出。为了更快地启动，人们开始改进<code>init</code>，于是开始出现了<strong>Upstart</strong>和<strong>Systemd</strong>。</p>
+<h5 id="2、Systemd-的改进"><a href="#2、Systemd-的改进" class="headerlink" title="2、Systemd 的改进"></a>2、Systemd 的改进</h5><p>与<a class="link"   target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/UNIX_System_V" >System V<i class="fas fa-external-link-alt"></i></a>风格 <code>init</code> 相比，<strong>Systemd</strong>采用了以下新技术：</p>
+<ul>
+<li>将<code>service</code>（服务）、<code>target</code>（运行模式，类似于<strong>System V</strong>的 run level）、<code>mount</code>、<code>timer</code>、<code>snapshot</code>、<code>path</code>、<code>socket</code>、<code>swap</code>等称为<code>Unit</code>。比如，一个<code>auditd</code>服务（就是<code>auditd.service</code>）就是一个<code>Unit</code>，一个<code>multi-user.target</code>运行模式也是一个<code>Unit</code>。</li>
+<li>采用<strong>Socket</strong>激活式与<strong>D-Bus</strong>激活式服务，以提高相互依赖的各服务的并行运行性能。</li>
+<li>用<strong>CGroups</strong>代替<strong>PID</strong>来追踪进程，因此即使是两次<code>fork</code>之后生成的守护进程也不会脱离<strong>Systemd</strong>的控制。<ul>
+<li>用 Target 代替<strong>System V</strong>的 run level，比如<strong>Systemd</strong>的<code>graphical.target</code>相当于<strong>System V</strong>的<code>RunLevel 5</code>，<code>multi-user.target</code>相当于 System V 的<code>RunLevel 3</code>。</li>
+</ul>
+</li>
+<li>内置<code>journald</code> 日志管理系统。</li>
+<li>内置<code>resolved</code>、<code>timesyncd</code>、<code>networkd</code>等组件。</li>
+<li>引入<code>localectl</code>、<code>timedatectl</code>、<code>hostnamectl</code>等新命令，系统配置更方便。</li>
+</ul>
+<p>截至目前，<strong>Systemd</strong>已经是是 Linux 发行版上最常见的<code>init</code>进程，Debian 系（Ubuntu、Linux Mint 等）、Red Hat 系（RHEL、Fedora、CentOS 等）、openSUSE、Arch Linux 都已经使用了<strong>Systemd</strong>。</p>
+<h4 id="二、Systemd-架构"><a href="#二、Systemd-架构" class="headerlink" title="二、Systemd 架构"></a><strong>二、Systemd 架构</strong></h4><p><strong>Systemd</strong> 体系非常复杂，功能涉及到了 Linux 系统的方方面面。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/Systemd_components.37p1kctsjao0.svg" alt="Systemd组件"></p>
+<h5 id="1、管理工具"><a href="#1、管理工具" class="headerlink" title="1、管理工具"></a><strong>1、管理工具</strong></h5><p><strong>Systemd</strong>常见的 control 工具及功能如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令名称</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>systemctl</code></td>
+<td><strong>Systemd</strong>的主命令，用于系统初始化配置和 Unit 管理</td>
+</tr>
+<tr>
+<td align="left"><code>journalctl</code></td>
+<td>日志管理</td>
+</tr>
+<tr>
+<td align="left"><code>hostnamectl</code></td>
+<td>主机名管理</td>
+</tr>
+<tr>
+<td align="left"><code>localectl</code></td>
+<td>区域与键盘布局管理</td>
+</tr>
+<tr>
+<td align="left"><code>loginctl</code></td>
+<td>登陆管理</td>
+</tr>
+<tr>
+<td align="left"><code>timedatectl</code></td>
+<td>时间与日期管理</td>
+</tr>
+<tr>
+<td align="left"><code>networkctl</code></td>
+<td>网络管理</td>
+</tr>
+<tr>
+<td align="left"><code>bootctl</code></td>
+<td>EFI 固件与启动器管理</td>
+</tr>
+<tr>
+<td align="left"><code>resolvectl</code></td>
+<td>域名解析管理</td>
+</tr>
+<tr>
+<td align="left"><code>systemd-analyze</code></td>
+<td><strong>Systemd</strong>的启动分析工具</td>
+</tr>
+<tr>
+<td align="left"><code>systemd-cgtop</code></td>
+<td><strong>Systemd</strong>的<strong>CGroups</strong>资源分析工具</td>
+</tr>
+<tr>
+<td align="left"><code>systemd-cat</code></td>
+<td><strong>Systemd</strong>的 Unit 读取工具</td>
+</tr>
+<tr>
+<td align="left"><code>systemd-mount</code></td>
+<td><strong>Systemd</strong>的文件挂载工具</td>
+</tr>
+<tr>
+<td align="left"><code>systemd-unmount</code></td>
+<td><strong>Systemd</strong>的文件卸载工具</td>
+</tr>
+</tbody></table>
+<h5 id="2、守护进程"><a href="#2、守护进程" class="headerlink" title="2、守护进程"></a><strong>2、守护进程</strong></h5><p><strong>Systemd</strong>常见的 daemon 进程及功能描述如下：</p>
+<table>
+<thead>
+<tr>
+<th>进程名称</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>systemd</code></td>
+<td><code>systemd</code>内核启动后创建的第一个用户态进程，它的 PID&#x3D;1，<br/>它通过读取文件系统上的配置来启动服务与守护进程，<br/>它是 Linux 上所有进程的父进程</td>
+</tr>
+<tr>
+<td><code>systemd-journald</code></td>
+<td><code>systemd-journald</code>是用于收集和存储日志数据的守护进程，<br/>它能够收集内核的日志与服务的标准输入输出并持久化存储</td>
+</tr>
+<tr>
+<td><code>systemd-udevd</code></td>
+<td><code>systemd-udevd</code>合并了<code>udev</code>，它用于监听内核发出的设备通知并根据配置做出处理</td>
+</tr>
+<tr>
+<td><code>systemd-logind</code></td>
+<td><code>systemd-logind</code>是用于用户的登陆管理的守护进程</td>
+</tr>
+<tr>
+<td><code>systemd-networkd</code></td>
+<td><code>systemd-networkd</code>是用于网络管理的守护进程</td>
+</tr>
+<tr>
+<td><code>systemd-resolved</code></td>
+<td><code>systemd-resolved</code>是用于域名解析的守护进程</td>
+</tr>
+</tbody></table>
+<h5 id="3、资源管理"><a href="#3、资源管理" class="headerlink" title="3、资源管理"></a><strong>3、资源管理</strong></h5><p><strong>Systemd</strong>通过基本单元 Unit 来管理系统资源，可以认为每个系统资源就是一个 Unit，并使用一个 Unit 文件定义。在 Unit 文件中需要包含相应服务的描述、属性以及需要运行的命令，<strong>Systemd</strong>一共支持 12 种 Unit 类型，分别是：</p>
+<ul>
+<li><code>.automount</code>：用于控制自动挂载文件系统，相当于<strong>System V</strong>的<strong>autofs</strong>服务。</li>
+<li><code>.device</code>：对于<code>/dev</code>目录下的设备，主要用于定义设备之间的依赖关系。</li>
+<li><code>.mount</code>：定义系统结构层次中的一个挂载点，可以替代过去的<code>/etc/fstab</code>配置文件。</li>
+<li><code>.path</code>：用于监控指定目录或文件的变化，并触发其它 Unit 运行。</li>
+<li><code>.scope</code>：这种 Unit 文件不是用户创建的，而是<strong>Systemd</strong>运行时产生的，描述一些系统服务的分组信息。</li>
+<li><code>.service</code>：封装守护进程的启动、停止、重启和重载操作，是最常见的一种 Unit 文件。</li>
+<li><code>.slice</code>：用于表示一个<strong>CGroups</strong>的树，通常用户不会自己创建这样的 Unit 文件。</li>
+<li><code>.snapshot</code>：用于表示一个由<code>systemctl snapshot</code>命令创建的 Units 运行状态快照。</li>
+<li><code>.socket</code>：监控来自于系统或网络的数据消息，用于实现基于数据自动触发服务启动。</li>
+<li><code>.swap</code>：定义一个用户做虚拟内存的交换分区。</li>
+<li><code>.target</code>：用于对 Unit 文件进行分组，引导其它 Unit 的执行。它还替代了<strong>System V</strong>运行级别的作用，并提供更灵活的基于特定设备事件的启动方式。</li>
+<li><code>.timer</code>：用于配置在定时任务，可以替代<code>crontab</code>。</li>
+</ul>
+<h5 id="4、目录结构"><a href="#4、目录结构" class="headerlink" title="4、目录结构"></a><strong>4、目录结构</strong></h5><p>Unit 文件按照<strong>Systemd</strong>约定，应该被放置指定的三个系统目录之一中。这三个目录是有优先级的，如下所示，越靠上的优先级越高。因此，在三个目录中有同名文件的时候，只有优先级最高的目录里的那个文件会被使用。</p>
+<ul>
+<li><code>/etc/systemd/system</code>：系统或用户自定义的配置文件。</li>
+<li><code>/run/systemd/system</code>：软件运行时生成的配置文件。</li>
+<li><code>/usr/lib/systemd/system</code>：系统或第三方软件安装时添加的配置文件。</li>
+</ul>
+<p><strong>Systemd</strong>默认从目录<code>/etc/systemd/system/</code>读取配置文件，但是里面存放的大部分都是指向<code>/usr/lib/systemd/system/</code>下配置文件的符号链接。</p>
+<h4 id="三、Systemd-配置"><a href="#三、Systemd-配置" class="headerlink" title="三、Systemd 配置"></a>三、Systemd 配置</h4><h5 id="1、服务"><a href="#1、服务" class="headerlink" title="1、服务"></a>1、服务</h5><p>Systemd 的 Service 是 Systemd 的最基本的单元，用于配置程序启动配置与依赖。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /lib/systemd/system/nginx.service</span></span><br><span class="line"><span class="comment"># Stop dance for nginx</span></span><br><span class="line"><span class="comment"># =======================</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ExecStop sends SIGSTOP (graceful stop) to the nginx process.</span></span><br><span class="line"><span class="comment"># If, after 5s (--retry QUIT/5) nginx is still running, systemd takes control</span></span><br><span class="line"><span class="comment"># and sends SIGTERM (fast shutdown) to the main process.</span></span><br><span class="line"><span class="comment"># After another 5s (TimeoutStopSec=5), and if nginx is alive, systemd sends</span></span><br><span class="line"><span class="comment"># SIGKILL to all the remaining processes in the process group (KillMode=mixed).</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># nginx signals reference doc:</span></span><br><span class="line"><span class="comment"># http://nginx.org/en/docs/control.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="attr">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=<span class="string">A high performance web server and a reverse proxy server</span></span><br><span class="line"><span class="attr">Documentation</span>=<span class="string">man:nginx(8)</span></span><br><span class="line"><span class="attr">After</span>=<span class="string">network.target nss-lookup.target</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=<span class="string">forking</span></span><br><span class="line"><span class="attr">PIDFile</span>=<span class="string">/run/nginx.pid</span></span><br><span class="line"><span class="attr">ExecStartPre</span>=<span class="string">/usr/sbin/nginx -t -q -g &#x27;daemon on; master_process on;&#x27;</span></span><br><span class="line"><span class="attr">ExecStart</span>=<span class="string">/usr/sbin/nginx -g &#x27;daemon on; master_process on;&#x27;</span></span><br><span class="line"><span class="attr">ExecReload</span>=<span class="string">/usr/sbin/nginx -g &#x27;daemon on; master_process on;&#x27; -s reload</span></span><br><span class="line"><span class="attr">ExecStop</span>=<span class="string">-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid</span></span><br><span class="line"><span class="attr">TimeoutStopSec</span>=<span class="string">5</span></span><br><span class="line"><span class="attr">KillMode</span>=<span class="string">mixed</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=<span class="string">multi-user.target</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /lib/systemd/system/ssh.service</span></span><br><span class="line"><span class="attr">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=<span class="string">OpenBSD Secure Shell server</span></span><br><span class="line"><span class="attr">Documentation</span>=<span class="string">man:sshd(8) man:sshd_config(5)</span></span><br><span class="line"><span class="attr">After</span>=<span class="string">network.target auditd.service</span></span><br><span class="line"><span class="attr">ConditionPathExists</span>=<span class="string">!/etc/ssh/sshd_not_to_be_run</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Service]</span></span><br><span class="line"><span class="attr">EnvironmentFile</span>=<span class="string">-/etc/default/ssh</span></span><br><span class="line"><span class="attr">ExecStartPre</span>=<span class="string">/usr/sbin/sshd -t</span></span><br><span class="line"><span class="attr">ExecStart</span>=<span class="string">/usr/sbin/sshd -D $SSHD_OPTS</span></span><br><span class="line"><span class="attr">ExecReload</span>=<span class="string">/usr/sbin/sshd -t</span></span><br><span class="line"><span class="attr">ExecReload</span>=<span class="string">/bin/kill -HUP $MAINPID</span></span><br><span class="line"><span class="attr">KillMode</span>=<span class="string">process</span></span><br><span class="line"><span class="attr">Restart</span>=<span class="string">on-failure</span></span><br><span class="line"><span class="attr">RestartPreventExitStatus</span>=<span class="string">255</span></span><br><span class="line"><span class="attr">Type</span>=<span class="string">notify</span></span><br><span class="line"><span class="attr">RuntimeDirectory</span>=<span class="string">sshd</span></span><br><span class="line"><span class="attr">RuntimeDirectoryMode</span>=<span class="string">0755</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=<span class="string">multi-user.target</span></span><br><span class="line"><span class="attr">Alias</span>=<span class="string">sshd.service</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h5><h5 id="3、挂载点"><a href="#3、挂载点" class="headerlink" title="3、挂载点"></a>3、挂载点</h5><h5 id="4、定时器"><a href="#4、定时器" class="headerlink" title="4、定时器"></a>4、定时器</h5>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Systemd教程</li>
+        <li>本文作者：阿巳</li>
+        <li>创建时间：2021-11-02 16:43:27</li>
+        <li>
+            本文链接：https://luokn.github.io/2021/11/02/操作系统/systemd教程/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Linux/">#Linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/systemd/">#systemd</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/11/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据结构：哈希表</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E7%9A%84%E6%9E%81%E7%AE%80%E5%AE%9E%E7%8E%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">机器学习：经典算法的极简实现</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '499effe24b303ab78ef8',
+                    clientSecret: '074c14c54d4e119e4056bb391ef279e0bba47818',
+                    repo: 'luokn.github.io',
+                    owner: 'luokn',
+                    admin: ['luokn'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">阿巳</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81Systemd-%E7%9A%84%E8%B5%B7%E6%BA%90"><span class="nav-text">一、Systemd 的起源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81System-V-%E5%90%AF%E5%8A%A8%E7%B3%BB%E7%BB%9F"><span class="nav-text">1、System V 启动系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81Systemd-%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="nav-text">2、Systemd 的改进</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Systemd-%E6%9E%B6%E6%9E%84"><span class="nav-text">二、Systemd 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="nav-text">1、管理工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="nav-text">2、守护进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="nav-text">3、资源管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">4、目录结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81Systemd-%E9%85%8D%E7%BD%AE"><span class="nav-text">三、Systemd 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E3%80%81%E6%9C%8D%E5%8A%A1"><span class="nav-text">1、服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E3%80%81%E8%AE%BE%E5%A4%87"><span class="nav-text">2、设备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%E3%80%81%E6%8C%82%E8%BD%BD%E7%82%B9"><span class="nav-text">3、挂载点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4%E3%80%81%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="nav-text">4、定时器</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
