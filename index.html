@@ -1,772 +1,816 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="关键字[待修改]">
-    <meta name="description" content="网站描述[待修改]">
-    <meta name="author" content="阿巳">
-    
-    <title>
-        
-        阿巳の博客
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Bojji’s Homepage</title>
+        <style>
+            /* cspell:disable-file */
+            /* webkit printing magic: print all background colors */
+            html {
+                -webkit-print-color-adjust: exact;
+            }
+            * {
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact;
+            }
 
-    <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"luokn.github.io","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/79f5e4fffe43344d.53wqhj4k3rk0.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Talk is cheap. Show me the code."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
-  </script>
-<meta name="generator" content="Hexo 6.0.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            @media only screen {
+                body {
+                    margin: 2em auto;
+                    max-width: 900px;
+                    color: rgb(55, 53, 47);
+                }
+            }
 
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
+            body {
+                line-height: 1.5;
+                white-space: pre-wrap;
+            }
 
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
+            a,
+            a.visited {
+                color: inherit;
+                text-decoration: underline;
+            }
 
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
+            .pdf-relative-link-path {
+                font-size: 80%;
+                color: #444;
+            }
 
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
+            h1,
+            h2,
+            h3 {
+                letter-spacing: -0.01em;
+                line-height: 1.2;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
 
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
+            .page-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-top: 0;
+                margin-bottom: 0.75em;
+            }
 
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
+            h1 {
+                font-size: 1.875rem;
+                margin-top: 1.875rem;
+            }
 
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 1.5rem;
+            }
 
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
+            h3 {
+                font-size: 1.25rem;
+                margin-top: 1.25rem;
+            }
 
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
+            .source {
+                border: 1px solid #ddd;
+                border-radius: 3px;
+                padding: 1.5em;
+                word-break: break-all;
+            }
 
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
+            .callout {
+                border-radius: 3px;
+                padding: 1rem;
+            }
 
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
+            figure {
+                margin: 1.25em 0;
+                page-break-inside: avoid;
+            }
 
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
+            figcaption {
+                opacity: 0.5;
+                font-size: 85%;
+                margin-top: 0.5em;
+            }
 
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+            mark {
+                background-color: transparent;
+            }
 
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
+            .indented {
+                padding-left: 1.5em;
+            }
 
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
+            hr {
+                background: transparent;
+                display: block;
+                width: 100%;
+                height: 1px;
+                visibility: visible;
+                border: none;
+                border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+            }
 
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
+            img {
+                max-width: 100%;
+            }
 
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
+            @media only print {
+                img {
+                    max-height: 100vh;
+                    object-fit: contain;
+                }
+            }
 
-.MathJax path {
-  stroke-width: 3;
-}
+            @page {
+                margin: 1in;
+            }
 
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
+            .collection-content {
+                font-size: 0.875rem;
+            }
 
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style></head>
+            .column-list {
+                display: flex;
+                justify-content: space-between;
+            }
 
+            .column {
+                padding: 0 1em;
+            }
 
-<body>
-<div class="progress-bar-container">
-    
+            .column:first-child {
+                padding-left: 0;
+            }
 
-    
-        <span class="pjax-progress-bar"></span>
-        <span class="pjax-progress-icon">
-            <i class="fas fa-circle-notch fa-spin"></i>
-        </span>
-    
-</div>
+            .column:last-child {
+                padding-right: 0;
+            }
 
+            .table_of_contents-item {
+                display: block;
+                font-size: 0.875rem;
+                line-height: 1.3;
+                padding: 0.125rem;
+            }
 
-<main class="page-container">
+            .table_of_contents-indent-1 {
+                margin-left: 1.5rem;
+            }
 
-    
-        <div class="first-screen-container flex-center fade-in-down-animation">
-    <div class="content flex-center">
-        <div class="description">
-            Talk is cheap. Show me the code.
-        </div>
-        
-            <div class="s-icon-list">
-                
-                    
-                        
-                            <span class="s-icon-item github">
-                                <a target="_blank" href="https://github.com/luokn">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item weixin">
-                                <a target="_blank" href="https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/contact-wechat.2cslhxc8l7rw.png">
-                                    <i class="fab fa-weixin"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                        
-                            <span class="s-icon-item qq">
-                                <a target="_blank" href="https://cdn.jsdelivr.net/gh/luokn/files@master/20211102/contact-qq.497kq6y96f20.png">
-                                    <i class="fab fa-qq"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        
-                            <span class="s-icon-item email">
-                                <a href="mailto:olooook@outlook.com">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </span>
-                        
-                    
-                
-            </div>
-        
-    </div>
-</div>
+            .table_of_contents-indent-2 {
+                margin-left: 3rem;
+            }
 
-    
+            .table_of_contents-indent-3 {
+                margin-left: 4.5rem;
+            }
 
-    <div class="page-main-content">
+            .table_of_contents-link {
+                text-decoration: none;
+                opacity: 0.7;
+                border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+            }
 
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
+            table,
+            th,
+            td {
+                border: 1px solid rgba(55, 53, 47, 0.09);
+                border-collapse: collapse;
+            }
 
-    <div class="header-content has-first-screen">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                阿巳の博客
-            </a>
-        </div>
+            table {
+                border-left: none;
+                border-right: none;
+            }
 
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/"
+            th,
+            td {
+                font-weight: normal;
+                padding: 0.25em 0.5em;
+                line-height: 1.5;
+                min-height: 1.5em;
+                text-align: left;
+            }
+
+            th {
+                color: rgba(55, 53, 47, 0.6);
+            }
+
+            ol,
+            ul {
+                margin: 0;
+                margin-block-start: 0.6em;
+                margin-block-end: 0.6em;
+            }
+
+            li > ol:first-child,
+            li > ul:first-child {
+                margin-block-start: 0.6em;
+            }
+
+            ul > li {
+                list-style: disc;
+            }
+
+            ul.to-do-list {
+                text-indent: -1.7em;
+            }
+
+            ul.to-do-list > li {
+                list-style: none;
+            }
+
+            .to-do-children-checked {
+                text-decoration: line-through;
+                opacity: 0.375;
+            }
+
+            ul.toggle > li {
+                list-style: none;
+            }
+
+            ul {
+                padding-inline-start: 1.7em;
+            }
+
+            ul > li {
+                padding-left: 0.1em;
+            }
+
+            ol {
+                padding-inline-start: 1.6em;
+            }
+
+            ol > li {
+                padding-left: 0.2em;
+            }
+
+            .mono ol {
+                padding-inline-start: 2em;
+            }
+
+            .mono ol > li {
+                text-indent: -0.4em;
+            }
+
+            .toggle {
+                padding-inline-start: 0em;
+                list-style-type: none;
+            }
+
+            /* Indent toggle children */
+            .toggle > li > details {
+                padding-left: 1.7em;
+            }
+
+            .toggle > li > details > summary {
+                margin-left: -1.1em;
+            }
+
+            .selected-value {
+                display: inline-block;
+                padding: 0 0.5em;
+                background: rgba(206, 205, 202, 0.5);
+                border-radius: 3px;
+                margin-right: 0.5em;
+                margin-top: 0.3em;
+                margin-bottom: 0.3em;
+                white-space: nowrap;
+            }
+
+            .collection-title {
+                display: inline-block;
+                margin-right: 1em;
+            }
+
+            .simple-table {
+                margin-top: 1em;
+                font-size: 0.875rem;
+                empty-cells: show;
+            }
+            .simple-table td {
+                height: 29px;
+                min-width: 120px;
+            }
+
+            .simple-table th {
+                height: 29px;
+                min-width: 120px;
+            }
+
+            .simple-table-header-color {
+                background: rgb(247, 246, 243);
+                color: black;
+            }
+            .simple-table-header {
+                font-weight: 500;
+            }
+
+            time {
+                opacity: 0.5;
+            }
+
+            .icon {
+                display: inline-block;
+                max-width: 1.2em;
+                max-height: 1.2em;
+                text-decoration: none;
+                vertical-align: text-bottom;
+                margin-right: 0.5em;
+            }
+
+            img.icon {
+                border-radius: 3px;
+            }
+
+            .user-icon {
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 100%;
+                margin-right: 0.5rem;
+            }
+
+            .user-icon-inner {
+                font-size: 0.8em;
+            }
+
+            .text-icon {
+                border: 1px solid #000;
+                text-align: center;
+            }
+
+            .page-cover-image {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+                max-height: 30vh;
+            }
+
+            .page-header-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .page-header-icon-with-cover {
+                margin-top: -0.72em;
+                margin-left: 0.07em;
+            }
+
+            .page-header-icon img {
+                border-radius: 3px;
+            }
+
+            .link-to-page {
+                margin: 1em 0;
+                padding: 0;
+                border: none;
+                font-weight: 500;
+            }
+
+            p > .user {
+                opacity: 0.5;
+            }
+
+            td > .user,
+            td > time {
+                white-space: nowrap;
+            }
+
+            input[type="checkbox"] {
+                transform: scale(1.5);
+                margin-right: 0.6em;
+                vertical-align: middle;
+            }
+
+            p {
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .image {
+                border: none;
+                margin: 1.5em 0;
+                padding: 0;
+                border-radius: 0;
+                text-align: center;
+            }
+
+            .code,
+            code {
+                background: rgba(135, 131, 120, 0.15);
+                border-radius: 3px;
+                padding: 0.2em 0.4em;
+                border-radius: 3px;
+                font-size: 85%;
+                tab-size: 2;
+            }
+
+            code {
+                color: #eb5757;
+            }
+
+            .code {
+                padding: 1.5em 1em;
+            }
+
+            .code-wrap {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+
+            .code > code {
+                background: none;
+                padding: 0;
+                font-size: 100%;
+                color: inherit;
+            }
+
+            blockquote {
+                font-size: 1.25em;
+                margin: 1em 0;
+                padding-left: 1em;
+                border-left: 3px solid rgb(55, 53, 47);
+            }
+
+            .bookmark {
+                text-decoration: none;
+                max-height: 8em;
+                padding: 0;
+                display: flex;
+                width: 100%;
+                align-items: stretch;
+            }
+
+            .bookmark-title {
+                font-size: 0.85em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 1.75em;
+                white-space: nowrap;
+            }
+
+            .bookmark-text {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .bookmark-info {
+                flex: 4 1 180px;
+                padding: 12px 14px 14px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .bookmark-image {
+                width: 33%;
+                flex: 1 1 180px;
+                display: block;
+                position: relative;
+                object-fit: cover;
+                border-radius: 1px;
+            }
+
+            .bookmark-description {
+                color: rgba(55, 53, 47, 0.6);
+                font-size: 0.75em;
+                overflow: hidden;
+                max-height: 4.5em;
+                word-break: break-word;
+            }
+
+            .bookmark-href {
+                font-size: 0.75em;
+                margin-top: 0.25em;
+            }
+
+            .sans {
+                font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+                    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+            }
+            .code {
+                font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+            }
+            .serif {
+                font-family: Lyon-Text, Georgia, ui-serif, serif;
+            }
+            .mono {
+                font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+            }
+            .pdf .sans {
+                font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+                    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji",
+                    "Noto Color Emoji", "Noto Sans CJK JP";
+            }
+            .pdf:lang(zh-CN) .sans {
+                font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+                    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji",
+                    "Noto Color Emoji", "Noto Sans CJK SC";
+            }
+            .pdf:lang(zh-TW) .sans {
+                font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+                    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji",
+                    "Noto Color Emoji", "Noto Sans CJK TC";
+            }
+            .pdf:lang(ko-KR) .sans {
+                font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+                    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji",
+                    "Noto Color Emoji", "Noto Sans CJK KR";
+            }
+            .pdf .code {
+                font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier,
+                    monospace, "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK JP";
+            }
+            .pdf:lang(zh-CN) .code {
+                font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier,
+                    monospace, "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC";
+            }
+            .pdf:lang(zh-TW) .code {
+                font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier,
+                    monospace, "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK TC";
+            }
+            .pdf:lang(ko-KR) .code {
+                font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier,
+                    monospace, "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK KR";
+            }
+            .pdf .serif {
+                font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji", "Noto Color Emoji",
+                    "Noto Serif CJK JP";
+            }
+            .pdf:lang(zh-CN) .serif {
+                font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji", "Noto Color Emoji",
+                    "Noto Serif CJK SC";
+            }
+            .pdf:lang(zh-TW) .serif {
+                font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji", "Noto Color Emoji",
+                    "Noto Serif CJK TC";
+            }
+            .pdf:lang(ko-KR) .serif {
+                font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji", "Noto Color Emoji",
+                    "Noto Serif CJK KR";
+            }
+            .pdf .mono {
+                font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, "Twemoji", "Noto Color Emoji",
+                    "Noto Sans Mono CJK JP";
+            }
+            .pdf:lang(zh-CN) .mono {
+                font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, "Twemoji", "Noto Color Emoji",
+                    "Noto Sans Mono CJK SC";
+            }
+            .pdf:lang(zh-TW) .mono {
+                font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, "Twemoji", "Noto Color Emoji",
+                    "Noto Sans Mono CJK TC";
+            }
+            .pdf:lang(ko-KR) .mono {
+                font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, "Twemoji", "Noto Color Emoji",
+                    "Noto Sans Mono CJK KR";
+            }
+            .highlight-default {
+                color: rgba(55, 53, 47, 1);
+            }
+            .highlight-gray {
+                color: rgba(120, 119, 116, 1);
+                fill: rgba(120, 119, 116, 1);
+            }
+            .highlight-brown {
+                color: rgba(159, 107, 83, 1);
+                fill: rgba(159, 107, 83, 1);
+            }
+            .highlight-orange {
+                color: rgba(217, 115, 13, 1);
+                fill: rgba(217, 115, 13, 1);
+            }
+            .highlight-yellow {
+                color: rgba(203, 145, 47, 1);
+                fill: rgba(203, 145, 47, 1);
+            }
+            .highlight-teal {
+                color: rgba(68, 131, 97, 1);
+                fill: rgba(68, 131, 97, 1);
+            }
+            .highlight-blue {
+                color: rgba(51, 126, 169, 1);
+                fill: rgba(51, 126, 169, 1);
+            }
+            .highlight-purple {
+                color: rgba(144, 101, 176, 1);
+                fill: rgba(144, 101, 176, 1);
+            }
+            .highlight-pink {
+                color: rgba(193, 76, 138, 1);
+                fill: rgba(193, 76, 138, 1);
+            }
+            .highlight-red {
+                color: rgba(212, 76, 71, 1);
+                fill: rgba(212, 76, 71, 1);
+            }
+            .highlight-gray_background {
+                background: rgba(241, 241, 239, 1);
+            }
+            .highlight-brown_background {
+                background: rgba(244, 238, 238, 1);
+            }
+            .highlight-orange_background {
+                background: rgba(251, 236, 221, 1);
+            }
+            .highlight-yellow_background {
+                background: rgba(251, 243, 219, 1);
+            }
+            .highlight-teal_background {
+                background: rgba(237, 243, 236, 1);
+            }
+            .highlight-blue_background {
+                background: rgba(231, 243, 248, 1);
+            }
+            .highlight-purple_background {
+                background: rgba(244, 240, 247, 0.8);
+            }
+            .highlight-pink_background {
+                background: rgba(249, 238, 243, 0.8);
+            }
+            .highlight-red_background {
+                background: rgba(253, 235, 236, 1);
+            }
+            .block-color-default {
+                color: inherit;
+                fill: inherit;
+            }
+            .block-color-gray {
+                color: rgba(120, 119, 116, 1);
+                fill: rgba(120, 119, 116, 1);
+            }
+            .block-color-brown {
+                color: rgba(159, 107, 83, 1);
+                fill: rgba(159, 107, 83, 1);
+            }
+            .block-color-orange {
+                color: rgba(217, 115, 13, 1);
+                fill: rgba(217, 115, 13, 1);
+            }
+            .block-color-yellow {
+                color: rgba(203, 145, 47, 1);
+                fill: rgba(203, 145, 47, 1);
+            }
+            .block-color-teal {
+                color: rgba(68, 131, 97, 1);
+                fill: rgba(68, 131, 97, 1);
+            }
+            .block-color-blue {
+                color: rgba(51, 126, 169, 1);
+                fill: rgba(51, 126, 169, 1);
+            }
+            .block-color-purple {
+                color: rgba(144, 101, 176, 1);
+                fill: rgba(144, 101, 176, 1);
+            }
+            .block-color-pink {
+                color: rgba(193, 76, 138, 1);
+                fill: rgba(193, 76, 138, 1);
+            }
+            .block-color-red {
+                color: rgba(212, 76, 71, 1);
+                fill: rgba(212, 76, 71, 1);
+            }
+            .block-color-gray_background {
+                background: rgba(241, 241, 239, 1);
+            }
+            .block-color-brown_background {
+                background: rgba(244, 238, 238, 1);
+            }
+            .block-color-orange_background {
+                background: rgba(251, 236, 221, 1);
+            }
+            .block-color-yellow_background {
+                background: rgba(251, 243, 219, 1);
+            }
+            .block-color-teal_background {
+                background: rgba(237, 243, 236, 1);
+            }
+            .block-color-blue_background {
+                background: rgba(231, 243, 248, 1);
+            }
+            .block-color-purple_background {
+                background: rgba(244, 240, 247, 0.8);
+            }
+            .block-color-pink_background {
+                background: rgba(249, 238, 243, 0.8);
+            }
+            .block-color-red_background {
+                background: rgba(253, 235, 236, 1);
+            }
+            .select-value-color-pink {
+                background-color: rgba(245, 224, 233, 1);
+            }
+            .select-value-color-purple {
+                background-color: rgba(232, 222, 238, 1);
+            }
+            .select-value-color-green {
+                background-color: rgba(219, 237, 219, 1);
+            }
+            .select-value-color-gray {
+                background-color: rgba(227, 226, 224, 1);
+            }
+            .select-value-color-opaquegray {
+                background-color: rgba(255, 255, 255, 0.0375);
+            }
+            .select-value-color-orange {
+                background-color: rgba(250, 222, 201, 1);
+            }
+            .select-value-color-brown {
+                background-color: rgba(238, 224, 218, 1);
+            }
+            .select-value-color-red {
+                background-color: rgba(255, 226, 221, 1);
+            }
+            .select-value-color-yellow {
+                background-color: rgba(253, 236, 200, 1);
+            }
+            .select-value-color-blue {
+                background-color: rgba(211, 229, 239, 1);
+            }
+
+            .checkbox {
+                display: inline-flex;
+                vertical-align: text-bottom;
+                width: 16;
+                height: 16;
+                background-size: 16px;
+                margin-left: 2px;
+                margin-right: 5px;
+            }
+
+            .checkbox-on {
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+            }
+
+            .checkbox-off {
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+            }
+        </style>
+    </head>
+    <body>
+        <article id="9f2c89d3-ef85-4bcd-9a8e-2c2525e824f5" class="page sans">
+            <header>
+                <img
+                    class="page-cover-image"
+                    src="https://cdn.jsdelivr.net/gh/luokn/file-hosting@master/wallhaven-eov6qo.2ursuei74ow0.webp"
+                    style="object-position: center 50%"
+                />
+                <div class="page-header-icon page-header-icon-with-cover">
+                    <img
+                        class="icon"
+                        src="https://cdn.jsdelivr.net/gh/luokn/file-hosting@master/35.2e86xg4sjv28.webp"
+                    />
+                </div>
+                <h1 class="page-title">Bojji’s Homepage</h1>
+            </header>
+            <div class="page-body">
+                <p id="6ed1fe59-cba4-4c3a-86a6-04f88cdf14e2" class="block-color-gray">
+                    🚀 Machine Learning · 🛠️ Algorithms · 💽 Graph Neural Network · 🔬 Mathematics
+                </p>
+                <div id="66468b88-fd0b-4ab7-ba91-ed377837fc95" class="column-list">
+                    <div id="355f9cc7-1954-475b-93e2-5d5c059c8d10" style="width: 50%" class="column">
+                        <h2 id="051ef86e-b681-4593-a121-331e62f85e2a" class="">Machine Learning</h2>
+                        <hr id="0f58dae3-46f7-4e76-8703-8f8691eb8bab" />
+                        <figure id="76fdb773-16b2-4a60-98d5-6c333eef43a0" class="link-to-page">
+                            <a
+                                href="Bojji%E2%80%99s%20Homepage%209f2c89d3ef854bcd9a8e2c2525e824f5/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%9E%81%E7%AE%80%E5%AE%9E%E7%8E%B0%2076fdb77316b24a6098d56c333eef43a0.html"
+                                ><span class="icon">⛴️</span>机器学习极简实现</a
                             >
-                                首页
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives/"
+                        </figure>
+                        <h2 id="e1b69abf-d2aa-493b-826a-ae291d47411c" class="">Algorithms</h2>
+                        <hr id="add6246a-6dee-4798-88f5-ef678adca77c" />
+                        <figure id="7d810581-3ba3-414a-9f26-24c89e15d38d" class="link-to-page">
+                            <a
+                                href="Bojji%E2%80%99s%20Homepage%209f2c89d3ef854bcd9a8e2c2525e824f5/%E8%B7%B3%E8%A1%A8%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0%207d8105813ba3414a9f2624c89e15d38d.html"
+                                ><span class="icon">📔</span>跳表原理与实现</a
                             >
-                                归档
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about/"
+                        </figure>
+                    </div>
+                    <div id="e594eca2-ce1f-469e-b2a6-aae1a4704cdf" style="width: 50%" class="column">
+                        <h2 id="6dcd93ae-acc5-40a4-b176-9b87644daca7" class="">Graph Neural Network</h2>
+                        <hr id="ee17b113-6174-419a-879f-26307a1026fb" />
+                        <figure id="c4f2d39e-7467-4b4b-8efb-08ce11e98ec5" class="link-to-page">
+                            <a
+                                href="Bojji%E2%80%99s%20Homepage%209f2c89d3ef854bcd9a8e2c2525e824f5/GNN%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%80%BB%E7%BB%93%20c4f2d39e74674b4b8efb08ce11e98ec5.html"
+                                ><span class="icon">🍍</span>GNN消息传递总结</a
                             >
-                                关于
+                        </figure>
+                        <h2 id="e9401154-587c-4ce3-a224-4f279a534608" class="">Mathematics</h2>
+                        <hr id="07e85d19-c51f-4e65-a15d-fe4009449fba" />
+                        <figure id="ca0f238d-d07c-44ac-9d70-a554ea6c46e5" class="link-to-page">
+                            <a
+                                href="Bojji%E2%80%99s%20Homepage%209f2c89d3ef854bcd9a8e2c2525e824f5/%E6%9F%AF%E8%A5%BF-%E6%AF%94%E5%86%85%E5%85%AC%E5%BC%8F%E8%AF%81%E6%98%8E%20ca0f238dd07c44ac9d70a554ea6c46e5.html"
+                                ><span class="icon">🧁</span>柯西-比内公式证明
                             </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories/"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags/"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
+                        </figure>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives/">归档</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about/">关于</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories/">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags/">标签</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/sshfs-win%E6%95%99%E7%A8%8B/">
-                        sshfs-win教程
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        
-安装 winfsp、sshfs-win
- 12winget install WinFsp.WinFspwinget install SSHFS-Win.SSHFS-Win
-
-挂载 SSHFS
- 1net.exe use Z: \\sshfs.kr\...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Nov 13 2021 12:41:00 GMT+0800">2021-11-13</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/sshfs-win%E6%95%99%E7%A8%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%80%BB%E7%BB%93/">
-                        图神经网络总结
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        消息机制：$$x_i^\prime = \phi \left( x_i, \mathop{aggregate}{j \in \mathcal{N(i)}} \varphi (x_i,x_j,\theta{ij}) \right)$$
-其中为激活函数，...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 03 2021 18:50:02 GMT+0800">2021-11-03</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%80%BB%E7%BB%93/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A0%B8%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-                        小想法：核注意力机制
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1. 线性注意力在 Transformer 中，注意力机制表示为：，，，若定义相似度量函数 ，则可令
-
-则
-
-论文《Attention is all you need》中提到了以下以下几种 ：
-
-点积：
-缩放点积：
-双线性：
-拼接：
-
-2. 非线性核...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 03 2021 18:50:02 GMT+0800">2021-11-03</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A0%B8%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%B7%B3%E8%A1%A8/">
-                        数据结构：跳表
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        ！！！（未完成）！！！
-
-SkipList(跳表)这种数据结构是由 William Pugh 于 1990 年在在 Communications of the ACM June 1990, 33(6) 668-676 发表了 Skip lists: ...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 03 2021 18:05:42 GMT+0800">2021-11-03</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%B7%B3%E8%A1%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-                        数据结构：哈希表
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        1. Hash 函数主要使用以下几个 Hash 函数
-123456789101112typedef unsigned int (*hash_fn_t)(void*);#define AP_HASH ((hash_fn_t) __ap_hash)#de...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 03 2021 18:00:42 GMT+0800">2021-11-03</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%93%88%E5%B8%8C%E8%A1%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/systemd%E6%95%99%E7%A8%8B/">
-                        Systemd教程
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        Systemd是 Linux 下一系列工具的集合，其涵盖了 Linux 的系统启动、服务监控、状态查询、日志归档、设备管理、电源管理与定时任务等功能，除此之外还支持通过特定设备事件与特定端口数据触发的 On-demand（按需）任务。
-Systemd...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Nov 02 2021 16:43:27 GMT+0800">2021-11-02</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/02/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/systemd%E6%95%99%E7%A8%8B/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E7%9A%84%E6%9E%81%E7%AE%80%E5%AE%9E%E7%8E%B0/">
-                        机器学习：经典算法的极简实现
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        大三的时候曾花两个星期学习了几个经典的机器学习算法，学习方法主要是白天参考《统计学习方法》推导公式，晚上利用公式编写实现。在参考 GitHub 上算法实现时，我发现其中大多数都比较繁杂冗长，很难体现出算法的核心思想。因此我特地找出了以前的机器学习算法...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Nov 02 2021 14:02:49 GMT+0800">2021-11-02</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E7%9A%84%E6%9E%81%E7%AE%80%E5%AE%9E%E7%8E%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E6%9F%AF%E8%A5%BF-%E6%AF%94%E5%86%85%E5%85%AC%E5%BC%8F%E8%AF%81%E6%98%8E/">
-                        线性代数：柯西-比内公式证明
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        如何理解或是证明柯西-比内公式？ - 木亦有知的回答 - 知乎
-我曾在陈维桓《微分流形初步》第二版的第一章课后习题第 50 题看到过类似的问题，柯西比内公式其实是这个题的一个推论，证明主要利用了外代数的基本性质。
-
-
-
-
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 01 2021 17:44:07 GMT+0800">2021-11-01</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/11/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/%E6%9F%AF%E8%A5%BF-%E6%AF%94%E5%86%85%E5%85%AC%E5%BC%8F%E8%AF%81%E6%98%8E/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-    </ul>
-
-    <div class="home-paginator">
-        <div class="paginator">
-    
-
-    
-</div>
-
-    </div>
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">阿巳</a>
-        </div>
-        
-        <div class="theme-info info-item">
-            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
-
-
-
-
-<div class="post-scripts pjax">
-    
-</div>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
-
-
-
-</body>
+        </article>
+    </body>
 </html>
